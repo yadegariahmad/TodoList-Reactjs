@@ -1,1 +1,1 @@
-export default Home;
+export default 1;
