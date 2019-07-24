@@ -119,7 +119,7 @@ class SignUp extends Component
     const { SignUpForm } = this.state;
     return (
       <form onSubmit={(e) => { this.signUp(e); }}>
-        <h1>Sign up</h1>
+        <h1 style={{ fontWeighteight: 'bold', margin: 0 }}>Sign up</h1>
         <br />
 
         <FormGroup>
@@ -133,7 +133,7 @@ class SignUp extends Component
             onChange={this.changeHandler('name')}
           />
         </FormGroup>
-        {!SignUpForm.name.valid && <span className="error">Name is required</span>}
+        {!SignUpForm.name.valid && <p style={{ fontSize: '12px' }} className="error">Name is required</p>}
 
         <FormGroup>
           <Label for="userName">User Name</Label>
@@ -146,7 +146,7 @@ class SignUp extends Component
             onChange={this.changeHandler('userName')}
           />
         </FormGroup>
-        {!SignUpForm.userName.valid && <span className="error">User Name is required</span>}
+        {!SignUpForm.userName.valid && <p style={{ fontSize: '12px' }} className="error">User Name is required</p>}
 
         <FormGroup>
           <Label for="signUp-email">Email</Label>
@@ -159,7 +159,7 @@ class SignUp extends Component
             onChange={this.changeHandler('email')}
           />
         </FormGroup>
-        {!SignUpForm.email.valid && <span className="error">e-mail format is incorrect</span>}
+        {!SignUpForm.email.valid && <p style={{ fontSize: '12px' }} className="error">e-mail format is incorrect</p>}
 
         <FormGroup>
           <Label for="signUp-password">Password</Label>
@@ -172,9 +172,9 @@ class SignUp extends Component
             onChange={this.changeHandler('password')}
           />
         </FormGroup>
-        {!SignUpForm.password.valid && <span className="error">Password min length is 5</span>}
+        {!SignUpForm.password.valid && <p style={{ fontSize: '12px' }} className="error">Password min length is 5</p>}
 
-        <button type="submit" disabled={!SignUpForm.formIsValid}>Sign Up</button>
+        <button className="auth-button" type="submit" disabled={!SignUpForm.formIsValid}>Sign Up</button>
       </form>
     );
   }

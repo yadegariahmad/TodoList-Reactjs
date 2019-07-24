@@ -89,7 +89,7 @@ class LogIn extends Component
     const { logInForm } = this.state;
     return (
       <Form onSubmit={(e) => { this.signIn(e); }}>
-        <h1>Sign in</h1>
+        <h1 style={{ fontWeighteight: 'bold', margin: 0 }}>Sign in</h1>
         <br />
         <FormGroup>
           <Label for="logIn-email">Email</Label>
@@ -102,7 +102,7 @@ class LogIn extends Component
             onChange={this.changeHandler('email')}
           />
         </FormGroup>
-        {!logInForm.email.valid && <span className="error">e-mail format is incorrect</span>}
+        {!logInForm.email.valid && <span style={{ fontSize: '12px' }} className="error">e-mail format is incorrect</span>}
 
         <FormGroup>
           <Label for="logIn-password">Password</Label>
@@ -115,9 +115,9 @@ class LogIn extends Component
             onChange={this.changeHandler('password')}
           />
         </FormGroup>
-        {!logInForm.password.valid && <span className="error">Password min length is 5</span>}
+        {!logInForm.password.valid && <span style={{ fontSize: '12px' }} className="error">Password min length is 5</span>}
 
-        <button type="submit" disabled={!logInForm.formIsValid}>Sign In</button>
+        <button className="auth-button" type="submit" disabled={!logInForm.formIsValid}>Sign In</button>
       </Form>
     );
   }

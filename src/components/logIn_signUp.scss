@@ -6,16 +6,16 @@
   box-sizing: border-box;
 }
 
-h1 {
-  font-weight: bold;
-  margin: 0;
-}
+// h1 {
+//   font-weight: bold;
+//   margin: 0;
+// }
 
-span {
-  font-size: 12px;
-}
+// span {
+//   font-size: 12px;
+// }
 
-button {
+.auth-button {
   border-radius: 20px;
   border: 1px solid #FF4B2B;
   background-color: #FF4B2B;
@@ -26,6 +26,10 @@ button {
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+}
+
+p, .form-group {
+  margin: 0;
 }
 
 button:active {
