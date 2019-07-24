@@ -55,6 +55,7 @@ const Routes = ({ location, settings, _setMessage }) => (
     >
       {settings.message}
     </Alert>
+    {settings.showLoader && <PageLoader />}
     <Suspense fallback={<PageLoader />} style={{ position: 'absolute' }}>
       <Switch location={location}>
         <Route path="/Home" component={waitFor(requireAuth(Home))} />
@@ -72,21 +73,12 @@ Routes.propTypes = {
     pathname: PropTypes.string.isRequired,
   }).isRequired,
   settings: PropTypes.shape({
+    showLoader: PropTypes.bool.isRequired,
     message: PropTypes.string.isRequired,
     messageType: PropTypes.string.isRequired,
   }).isRequired,
   _setMessage: PropTypes.func.isRequired,
 };
-
-// const Routes = connect(
-//   state => ({ settings: state.settings }),
-//   dispatch => ({
-//     _setMessage: (message, messageType) =>
-//     {
-//       dispatch(setMessage(message, messageType));
-//     },
-//   }),
-// )(withRouter(_Routes));
 
 export default connect(
   state => ({ settings: state.settings }),
