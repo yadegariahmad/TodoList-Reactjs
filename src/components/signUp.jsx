@@ -7,6 +7,7 @@ import
   FormGroup,
   Label,
   Input,
+  FormFeedback,
 } from 'reactstrap';
 import { loader, signUp } from '../store/actions';
 import { SHOW_LOADER } from '../store/actionTypes';
@@ -93,25 +94,6 @@ class SignUp extends Component
     };
 
     _signUp(body);
-
-    // post('auth/signup', JSON.stringify(body))
-    //   .then((resData) =>
-    //   {
-    //     setSettings({ ...settings, showLoader: false });
-    //     if (resData.status === 201)
-    //     {
-    //       userCreated('signIn');
-    //       setValues(SignUpFormInit);
-    //     } else
-    //     {
-    //       throw new Error(resData.message);
-    //     }
-    //   })
-    //   .catch((err) =>
-    //   {
-    //     setSettings({ ...settings, showLoader: false });
-    //     error(err.message);
-    //   });
   };
 
   render()
@@ -130,10 +112,11 @@ class SignUp extends Component
             id="name"
             placeholder="Name"
             value={SignUpForm.name.value}
+            invalid={!SignUpForm.name.valid}
             onChange={this.changeHandler('name')}
           />
+          <FormFeedback>Name is required</FormFeedback>
         </FormGroup>
-        {!SignUpForm.name.valid && <p style={{ fontSize: '12px' }} className="error">Name is required</p>}
 
         <FormGroup>
           <Label for="userName">User Name</Label>
@@ -143,10 +126,11 @@ class SignUp extends Component
             id="userName"
             placeholder="User Name"
             value={SignUpForm.userName.value}
+            invalid={!SignUpForm.userName.valid}
             onChange={this.changeHandler('userName')}
           />
+          <FormFeedback>User Name is required</FormFeedback>
         </FormGroup>
-        {!SignUpForm.userName.valid && <p style={{ fontSize: '12px' }} className="error">User Name is required</p>}
 
         <FormGroup>
           <Label for="signUp-email">Email</Label>
@@ -156,10 +140,11 @@ class SignUp extends Component
             id="signUp-email"
             placeholder="Email"
             value={SignUpForm.email.value}
+            invalid={!SignUpForm.email.valid}
             onChange={this.changeHandler('email')}
           />
+          <FormFeedback>e-mail format is incorrect</FormFeedback>
         </FormGroup>
-        {!SignUpForm.email.valid && <p style={{ fontSize: '12px' }} className="error">e-mail format is incorrect</p>}
 
         <FormGroup>
           <Label for="signUp-password">Password</Label>
@@ -169,10 +154,11 @@ class SignUp extends Component
             id="signUp-password"
             placeholder="Password"
             value={SignUpForm.password.value}
+            invalid={!SignUpForm.password.valid}
             onChange={this.changeHandler('password')}
           />
+          <FormFeedback>Password min length is 5</FormFeedback>
         </FormGroup>
-        {!SignUpForm.password.valid && <p style={{ fontSize: '12px' }} className="error">Password min length is 5</p>}
 
         <button className="auth-button" type="submit" disabled={!SignUpForm.formIsValid}>Sign Up</button>
       </form>

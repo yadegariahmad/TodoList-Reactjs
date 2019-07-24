@@ -7,6 +7,7 @@ import
   FormGroup,
   Label,
   Input,
+  FormFeedback,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { loader, logIn } from '../store/actions';
@@ -99,10 +100,11 @@ class LogIn extends Component
             id="logIn-email"
             placeholder="Email"
             value={logInForm.email.value}
+            invalid={!logInForm.email.valid}
             onChange={this.changeHandler('email')}
           />
+          <FormFeedback>e-mail format is incorrect</FormFeedback>
         </FormGroup>
-        {!logInForm.email.valid && <span style={{ fontSize: '12px' }} className="error">e-mail format is incorrect</span>}
 
         <FormGroup>
           <Label for="logIn-password">Password</Label>
@@ -112,10 +114,11 @@ class LogIn extends Component
             id="logIn-password"
             placeholder="Password"
             value={logInForm.password.value}
+            invalid={!logInForm.password.valid}
             onChange={this.changeHandler('password')}
           />
+          <FormFeedback>Password min length is 5</FormFeedback>
         </FormGroup>
-        {!logInForm.password.valid && <span style={{ fontSize: '12px' }} className="error">Password min length is 5</span>}
 
         <button className="auth-button" type="submit" disabled={!logInForm.formIsValid}>Sign In</button>
       </Form>
