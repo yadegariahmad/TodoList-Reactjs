@@ -1,9 +1,8 @@
 import Request from '../../utils/request';
-import history from '../../utils/history';
 import { SIGN_UP_SUCCESS, HIDE_LOADER } from '../actionTypes';
 import { setMessage, loader } from './settings';
 
-export function logIn(body)
+export function logIn(body, history)
 {
   return dispatch => Request.post('http://localhost:8080/auth/login', JSON.stringify(body))
     .then((res) =>

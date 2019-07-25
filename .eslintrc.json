@@ -23,6 +23,31 @@
     "brace-style": "off",
     "linebreak-style": "off",
     "no-underscore-dangle": "off",
-    "no-alert": "off"
+    "no-alert": "off",
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": {
+          "some": [
+            "nesting",
+            "id"
+          ]
+        }
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelComponents": [
+          "label"
+        ],
+        "labelAttributes": [
+          "htmlFor"
+        ],
+        "controlComponents": [
+          "input"
+        ]
+      }
+    ]
   }
 }

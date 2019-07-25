@@ -80,8 +80,7 @@ class SignUp extends Component
 
   signUp = (e) =>
   {
-    const { _loader } = this.props;
-    const { _signUp } = this.props;
+    const { _loader, _signUp } = this.props;
     const { SignUpForm } = this.state;
     e.preventDefault();
     _loader(SHOW_LOADER);

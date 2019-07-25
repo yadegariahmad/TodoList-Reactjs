@@ -8,52 +8,38 @@ import
   EDIT_TODO,
 } from '../actionTypes';
 
-export default function todoReducer(state = {}, action) 
+export default function todoReducer(state = [], action)
 {
-  let retVal = {};
+  let retVal = [];
 
   switch (action.type)
   {
     case GET_TODOS:
-      retVal.todos = action.payload !== 'error'
-        ? [...action.payload.todos]
-        : [];
+      retVal = [...action.payload];
       break;
 
     case ADD_TODO:
-      action.payload !== 'error'
-        ? retVal.addSuccess = true
-        : retVal.error = true;
+      retVal = [...state, action.payload];
       break;
 
     case EDIT_TODO:
-      action.payload !== 'error'
-        ? retVal.editSuccess = true
-        : retVal.error = true;
+      retVal = state.map(todo => (
+        todo._id === action.payload.todoId
+          ? { ...todo, content: action.payload.content }
+          : { ...todo }
+      ));
       break;
 
     case DELETE_TODO:
-      retVal = action.payload !== 'error'
-        ? {
-          ...state,
-          todos: [
-            ...state.todos.filter(todo => todo._id !== action.payload),
-          ],
-        }
-        : { ...state, editError: true };
+      retVal = state.filter(todo => todo._id !== action.payload);
       break;
 
     case TOGGLE_TODO:
-      retVal = action.payload !== 'error'
-        ? {
-          ...state,
-          todos: [
-            ...state.todos.map(todo => (todo._id === action.payload
-              ? { ...todo, completed: !todo.completed }
-              : todo)),
-          ],
-        }
-        : { ...state, toggleError: true };
+      retVal = state.map(todo => (
+        todo._id === action.payload
+          ? { ...todo, completed: !todo.completed }
+          : { ...todo }
+      ));
       break;
 
     default:

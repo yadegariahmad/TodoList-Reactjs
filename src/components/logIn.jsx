@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import
 {
   Form,
@@ -71,8 +72,7 @@ class LogIn extends Component
 
   signIn = (e) =>
   {
-    const { _loader } = this.props;
-    const { _logIn } = this.props;
+    const { _loader, _logIn, history } = this.props;
     const { logInForm } = this.state;
     e.preventDefault();
     _loader(SHOW_LOADER);
@@ -82,7 +82,7 @@ class LogIn extends Component
       password: logInForm.password.value,
     };
 
-    _logIn(body);
+    _logIn(body, history);
   };
 
   render()
@@ -127,6 +127,9 @@ class LogIn extends Component
 }
 
 LogIn.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
   _loader: PropTypes.func.isRequired,
   _logIn: PropTypes.func.isRequired,
 };
@@ -140,11 +143,11 @@ const mapDispatchToProps = dispatch => ({
   {
     dispatch(loader(type));
   },
-  _logIn: (body) =>
+  _logIn: (body, history) =>
   {
-    dispatch(logIn(body));
+    dispatch(logIn(body, history));
   },
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LogIn));

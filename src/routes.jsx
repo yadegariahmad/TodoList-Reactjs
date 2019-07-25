@@ -9,83 +9,36 @@ import
   Route,
   Redirect,
 } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { Alert } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { setMessage } from './store/actions';
-import requireAuth from './components/authentication';
+import RequireAuth from './components/authentication';
+import Wrapper from './components/wrapper';
 import PageLoader from './components/pageLoader';
+
 
 const waitFor = Tag => props => <Tag {...props} />;
 
 const Home = lazy(() => import('./containers/Home'));
-const Add = lazy(() => import('./containers/Add'));
+const AddAndEdit = lazy(() => import('./containers/Add'));
 const Auth = lazy(() => import('./containers/Auth'));
 
-const mapMessageTypeToColor = (type) =>
-{
-  let retVal = '';
-  switch (type)
-  {
-    case 'error':
-      retVal = 'danger';
-      break;
-
-    case 'success':
-      retVal = 'success';
-      break;
-
-    case 'general':
-    default:
-      retVal = 'primary ';
-      break;
-  }
-
-  return retVal;
-};
-
-const Routes = ({ location, settings, _setMessage }) => (
-  <div style={{ position: 'relative', height: '100%' }}>
-    <Alert
-      className="alert-container"
-      color={mapMessageTypeToColor(settings.messageType)}
-      isOpen={!!settings.message.length}
-      toggle={() => _setMessage('', '')}
-      style={{ top: 0, right: 0, position: 'absolute' }}
-    >
-      {settings.message}
-    </Alert>
-    {settings.showLoader && <PageLoader />}
-    <Suspense fallback={<PageLoader />} style={{ position: 'absolute' }}>
+const Routes = ({ location }) => (
+  <>
+    <Suspense fallback={<PageLoader />}>
       <Switch location={location}>
-        <Route path="/Home" component={waitFor(requireAuth(Home))} />
-        <Route path="/Add" component={waitFor(requireAuth(Add))} />
-        <Route path="/Auth" component={waitFor(Auth)} />
+        <Route path="/Home" component={waitFor(RequireAuth(Wrapper(Home)))} />
+        <Route path="/Add" component={waitFor(RequireAuth(Wrapper(AddAndEdit)))} />
+        <Route path="/Auth" component={waitFor(Wrapper(Auth))} />
 
         <Redirect to="/Auth" />
       </Switch>
     </Suspense>
-  </div>
+  </>
 );
 
 Routes.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
-  settings: PropTypes.shape({
-    showLoader: PropTypes.bool.isRequired,
-    message: PropTypes.string.isRequired,
-    messageType: PropTypes.string.isRequired,
-  }).isRequired,
-  _setMessage: PropTypes.func.isRequired,
 };
 
-export default connect(
-  state => ({ settings: state.settings }),
-  dispatch => ({
-    _setMessage: (message, messageType) =>
-    {
-      dispatch(setMessage(message, messageType));
-    },
-  }),
-)(withRouter(Routes));
+export default withRouter(Routes);

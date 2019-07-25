@@ -1,8 +1,6 @@
 import { SIGN_UP_SUCCESS, GET_USER_ID } from '../actionTypes';
 
-const userId = localStorage.getItem('userId') || '';
 const initialState = {
-  userId,
   signedUp: false,
 };
 
@@ -16,7 +14,7 @@ export default function userReducer(state = initialState, action)
       break;
 
     case GET_USER_ID:
-      retVal = { ...state, userId };
+      retVal = { userId: state.userId };
       break;
 
     default:
