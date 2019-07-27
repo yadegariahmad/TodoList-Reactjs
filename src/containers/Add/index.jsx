@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Trans } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { addTodo, editTodo, loader } from '../../store/actions';
 import { SHOW_LOADER } from '../../store/actionTypes';
@@ -80,7 +81,7 @@ class AddAndEditTodo extends Component
             onChange={(e) => { this.updateContent(e.target.value); }}
           />
           <br />
-          <button className="btn-add" type="button" onClick={() => { this.submit(); }}>Submit</button>
+          <button className="btn-add" type="button" onClick={() => { this.submit(); }}><Trans i18nKey="card.SUBMIT" /></button>
         </div>
       </div>
     );

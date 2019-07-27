@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Trans } from 'react-i18next';
 import { deleteTodo, getTodos, toggleTodo } from '../store/actions';
-import date from '../utils/date';
+import miscs from '../utils/miscs';
 import './card.scss';
 
 export class Card extends Component
@@ -69,11 +70,11 @@ export class Card extends Component
       <div className="card">
         <div className="card-header">
           <h1 className="card-header__date">
-            {date()}
+            {miscs.convertEnNumberToFa(miscs.date())}
           </h1>
         </div>
         <div className="card-main">
-          <h2 className="card-main__title">To do List</h2>
+          <h2 className="card-main__title"><Trans i18nKey="card.TITLE" /></h2>
 
           <ul className="card-main__list">
             <TransitionGroup>

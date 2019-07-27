@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Trans } from 'react-i18next';
 import PropTypes from 'prop-types';
 import SignUp from '../../components/signUp';
 import LogIn from '../../components/logIn';
@@ -55,24 +56,24 @@ class Auth extends Component
             <div className="overlay">
               <div className="overlay-panel overlay-left">
                 <h1>Welcome Back!</h1>
-                <p>To keep connected with us please login with your personal info</p>
+                <p><Trans i18nKey="auth.sign-up.WELCOME" /></p>
                 <button
                   type="button"
                   className="ghost auth-button"
                   onClick={() => { this.setState({ mode: 'signIn' }); }}
                 >
-                  Sign In
+                  <Trans i18nKey="auth.log-in.TITLE" />
                 </button>
               </div>
               <div className="overlay-panel overlay-right">
                 <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
+                <p><Trans i18nKey="auth.log-in.WELCOME" /></p>
                 <button
                   type="button"
                   className="ghost auth-button"
                   onClick={() => { this.setState({ mode: 'signUp' }); }}
                 >
-                  Sign Up
+                  <Trans i18nKey="auth.sign-up.TITLE" />
                 </button>
               </div>
             </div>

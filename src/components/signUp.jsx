@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Trans } from 'react-i18next';
 import PropTypes from 'prop-types';
 import
 {
@@ -100,11 +101,11 @@ class SignUp extends Component
     const { SignUpForm } = this.state;
     return (
       <form onSubmit={(e) => { this.signUp(e); }}>
-        <h1 style={{ fontWeighteight: 'bold', margin: 0 }}>Sign up</h1>
+        <h1 style={{ fontWeighteight: 'bold', margin: 0 }}><Trans i18nKey="auth.sign-up.TITLE" /></h1>
         <br />
 
         <FormGroup>
-          <Label for="name">Name</Label>
+          <Label for="name"><Trans i18nKey="auth.NAME" /></Label>
           <Input
             type="text"
             name="name"
@@ -114,11 +115,11 @@ class SignUp extends Component
             invalid={!SignUpForm.name.valid}
             onChange={this.changeHandler('name')}
           />
-          <FormFeedback>Name is required</FormFeedback>
+          <FormFeedback><Trans i18nKey="auth.NAME-ERROR" /></FormFeedback>
         </FormGroup>
 
         <FormGroup>
-          <Label for="userName">User Name</Label>
+          <Label for="userName"><Trans i18nKey="auth.USER-NAME" /></Label>
           <Input
             type="text"
             name="userName"
@@ -128,11 +129,11 @@ class SignUp extends Component
             invalid={!SignUpForm.userName.valid}
             onChange={this.changeHandler('userName')}
           />
-          <FormFeedback>User Name is required</FormFeedback>
+          <FormFeedback><Trans i18nKey="auth.USER-NAME-ERROR" /></FormFeedback>
         </FormGroup>
 
         <FormGroup>
-          <Label for="signUp-email">Email</Label>
+          <Label for="signUp-email"><Trans i18nKey="auth.EMAIL" /></Label>
           <Input
             type="email"
             name="email"
@@ -142,11 +143,11 @@ class SignUp extends Component
             invalid={!SignUpForm.email.valid}
             onChange={this.changeHandler('email')}
           />
-          <FormFeedback>e-mail format is incorrect</FormFeedback>
+          <FormFeedback><Trans i18nKey="auth.EMAIL-ERROR" /></FormFeedback>
         </FormGroup>
 
         <FormGroup>
-          <Label for="signUp-password">Password</Label>
+          <Label for="signUp-password"><Trans i18nKey="auth.PASSWORD" /></Label>
           <Input
             type="password"
             name="password"
@@ -156,10 +157,12 @@ class SignUp extends Component
             invalid={!SignUpForm.password.valid}
             onChange={this.changeHandler('password')}
           />
-          <FormFeedback>Password min length is 5</FormFeedback>
+          <FormFeedback><Trans i18nKey="auth.PASSWORD-ERROR" /></FormFeedback>
         </FormGroup>
 
-        <button className="auth-button" type="submit" disabled={!SignUpForm.formIsValid}>Sign Up</button>
+        <button className="auth-button" type="submit" disabled={!SignUpForm.formIsValid}>
+          <Trans i18nKey="auth.sign-up.TITLE" />
+        </button>
       </form>
     );
   }

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Trans } from 'react-i18next';
 import
 {
   Form,
@@ -90,10 +91,10 @@ class LogIn extends Component
     const { logInForm } = this.state;
     return (
       <Form onSubmit={(e) => { this.signIn(e); }}>
-        <h1 style={{ fontWeighteight: 'bold', margin: 0 }}>Sign in</h1>
+        <h1 style={{ fontWeighteight: 'bold', margin: 0 }}><Trans i18nKey="auth.log-in.TITLE" /></h1>
         <br />
         <FormGroup>
-          <Label for="logIn-email">Email</Label>
+          <Label for="logIn-email"><Trans i18nKey="auth.EMAIL" /></Label>
           <Input
             type="email"
             name="email"
@@ -103,11 +104,11 @@ class LogIn extends Component
             invalid={!logInForm.email.valid}
             onChange={this.changeHandler('email')}
           />
-          <FormFeedback>e-mail format is incorrect</FormFeedback>
+          <FormFeedback><Trans i18nKey="auth.EMAIL-ERROR" /></FormFeedback>
         </FormGroup>
 
         <FormGroup>
-          <Label for="logIn-password">Password</Label>
+          <Label for="logIn-password"><Trans i18nKey="auth.PASSWORD" /></Label>
           <Input
             type="password"
             name="password"
@@ -117,10 +118,12 @@ class LogIn extends Component
             invalid={!logInForm.password.valid}
             onChange={this.changeHandler('password')}
           />
-          <FormFeedback>Password min length is 5</FormFeedback>
+          <FormFeedback><Trans i18nKey="auth.PASSWORD-ERROR" /></FormFeedback>
         </FormGroup>
 
-        <button className="auth-button" type="submit" disabled={!logInForm.formIsValid}>Sign In</button>
+        <button className="auth-button" type="submit" disabled={!logInForm.formIsValid}>
+          <Trans i18nKey="auth.log-in.TITLE" />
+        </button>
       </Form>
     );
   }
