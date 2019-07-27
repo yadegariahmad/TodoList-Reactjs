@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Trans } from 'react-i18next';
+import { Trans, withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { addTodo, editTodo, loader } from '../../store/actions';
 import { SHOW_LOADER } from '../../store/actionTypes';
@@ -119,4 +119,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddAndEditTodo);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation('translations')(AddAndEditTodo));

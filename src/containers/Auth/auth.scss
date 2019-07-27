@@ -3,6 +3,7 @@
 
 .Auth {
   background: #f6f5f7;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +12,12 @@
   height: 100%;
   width: 100%;
   margin: 0;
+
+  .lang-container {
+    position: absolute;
+    left: 5rem;
+    top: 5rem;
+  }
 }
 
 .container {

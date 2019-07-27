@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Trans } from 'react-i18next';
+import { Trans, withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import
 {
@@ -189,4 +189,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation('translations')(SignUp));

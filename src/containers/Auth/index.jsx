@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Trans } from 'react-i18next';
+import { Trans, withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import SignUp from '../../components/signUp';
 import LogIn from '../../components/logIn';
+import ChangeLang from '../../components/changeLang';
 import './auth.scss';
 
 class Auth extends Component
@@ -43,6 +44,9 @@ class Auth extends Component
   {
     return (
       <div className="Auth">
+        <div className="lang-container">
+          <ChangeLang btnColor="dark" />
+        </div>
         <div className={`container ${this.containerClass()}`} id="container">
           <div className="form-container sign-up-container">
             <SignUp />
@@ -95,4 +99,4 @@ const mapStateToProps = state => ({
   signedUp: state.user.signedUp,
 });
 
-export default connect(mapStateToProps, null)(Auth);
+export default connect(mapStateToProps, null)(withTranslation('translations')(Auth));
