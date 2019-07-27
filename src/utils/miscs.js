@@ -25,13 +25,24 @@ const mapMessageTypeToColor = (type) =>
 const convertEnNumberToFa = (number) =>
 {
   const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+  const lang = document.querySelector('html').getAttribute('lang');
   let retVal = number;
 
   if (typeof number === 'number')
   {
     retVal = retVal.toString();
   }
-  retVal = retVal.replace(/[0-9]/g, i => farsiDigits[i]);
+
+  switch (lang)
+  {
+    case 'fa':
+      retVal = retVal.replace(/[0-9]/g, i => farsiDigits[i]);
+      break;
+
+    case 'en':
+    default:
+      break;
+  }
 
   return retVal;
 };

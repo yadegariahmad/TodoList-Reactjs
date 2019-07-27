@@ -16,16 +16,16 @@ const ChangeLang = ({ i18n, btnColor }) =>
   const changeLanguage = (lng) =>
   {
     i18n.changeLanguage(lng);
+    document.querySelector('html').setAttribute('lang', lng);
   };
 
   return (
     <ButtonDropdown
       isOpen={dropdownOpen}
       toggle={() => { toggle(!dropdownOpen); }}
-      color={btnColor}
     >
-      <DropdownToggle caret>
-        <i className="fas fa-language" />
+      <DropdownToggle caret color={btnColor}>
+        <i className="fas fa-language fa-lg" />
       </DropdownToggle>
       <DropdownMenu>
         <DropdownItem onClick={() => { changeLanguage('fa'); }}>فارسی</DropdownItem>

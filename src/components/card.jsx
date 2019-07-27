@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Trans } from 'react-i18next';
+import { Trans, withTranslation } from 'react-i18next';
 import { deleteTodo, getTodos, toggleTodo } from '../store/actions';
 import miscs from '../utils/miscs';
 import './card.scss';
@@ -120,4 +120,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation('translations')(Card));

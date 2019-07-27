@@ -6,4 +6,10 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(to bottom right, #B622FF, #22D2FD);
+
+  .lang-container {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
 }
