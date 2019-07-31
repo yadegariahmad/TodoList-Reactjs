@@ -7,7 +7,7 @@ import LogIn from '../../components/logIn';
 import ChangeLang from '../../components/changeLang';
 import './auth.scss';
 
-class Auth extends Component
+export class Auth extends Component
 {
   state = {
     mode: 'signIn',

@@ -1,9 +1,32 @@
+
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('App', () =>
+{
+  const app = shallow(<App />);
+
+  it('renders properly', () =>
+  {
+    expect(app).toMatchSnapshot();
+  });
+
+  it('contains a Routes component with Router', () =>
+  {
+    expect(app.find('withRouter(Routes)').exists()).toBe(true);
+  });
+
+  describe('browserRouter', () =>
+  {
+    it('contains a BrowserRouter component with basename attr', () =>
+    {
+      expect(app.find('BrowserRouter').exists()).toBe(true);
+    });
+
+    it('browserRouter has `basename` attribute with `/` value', () =>
+    {
+      expect(app.find('BrowserRouter').props().basename).toBe('/');
+    });
+  });
 });

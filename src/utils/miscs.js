@@ -15,17 +15,17 @@ const mapMessageTypeToColor = (type) =>
 
     case 'general':
     default:
-      retVal = 'primary ';
+      retVal = 'primary';
       break;
   }
 
   return retVal;
 };
 
-const convertEnNumberToFa = (number) =>
+const convertEnNumberToFa = (number, _lang) =>
 {
   const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-  const lang = document.querySelector('html').getAttribute('lang');
+  const lang = _lang || document.querySelector('html').getAttribute('lang');
   let retVal = number;
 
   if (typeof number === 'number')

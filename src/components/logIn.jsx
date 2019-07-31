@@ -29,7 +29,7 @@ class LogIn extends Component
       password: {
         value: '',
         valid: false,
-        validators: [required, length],
+        validators: [required, length({ min: 5 })],
       },
       formIsValid: false,
     },
