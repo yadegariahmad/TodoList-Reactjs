@@ -9,11 +9,12 @@ import
   HIDE_LOADER,
 } from '../actionTypes';
 import { setMessage, loader } from './settings';
+import consts from '../../utils/const';
 
 export function getTodos()
 {
   const userId = localStorage.getItem('userId');
-  return dispatch => Request.get(`http://localhost:8080/todo/getTodos?userId=${userId}`)
+  return dispatch => Request.get(`${consts.API_MAIN_URL}/todo/getTodos?userId=${userId}`)
     .then((res) =>
     {
       if (res.status === 200)
@@ -38,7 +39,7 @@ export function getTodos()
 
 export function addTodo(todo, history)
 {
-  return dispatch => Request.post('http://localhost:8080/todo/addTodo', JSON.stringify(todo))
+  return dispatch => Request.post(`${consts.API_MAIN_URL}/todo/addTodo`, JSON.stringify(todo))
     .then((res) =>
     {
       if (res.status === 201)
@@ -64,7 +65,7 @@ export function addTodo(todo, history)
 
 export function editTodo(data, history)
 {
-  return dispatch => Request.put('http://localhost:8080/todo/updateTodo', JSON.stringify(data))
+  return dispatch => Request.put(`${consts.API_MAIN_URL}/todo/updateTodo`, JSON.stringify(data))
     .then((res) =>
     {
       if (res.status === 200)
@@ -91,7 +92,7 @@ export function editTodo(data, history)
 export function deleteTodo(id)
 {
   const userId = localStorage.getItem('userId');
-  return dispatch => Request.delete(`http://localhost:8080/todo/deleteTodo/${id}?userId=${userId}`)
+  return dispatch => Request.delete(`${consts.API_MAIN_URL}/todo/deleteTodo/${id}?userId=${userId}`)
     .then((res) =>
     {
       if (res.status === 200)
@@ -117,7 +118,7 @@ export function deleteTodo(id)
 export function toggleTodo(id)
 {
   const userId = localStorage.getItem('userId');
-  return dispatch => Request.put(`http://localhost:8080/todo/toggleTodo/${id}?userId=${userId}`, {})
+  return dispatch => Request.put(`${consts.API_MAIN_URL}/todo/toggleTodo/${id}?userId=${userId}`, {})
     .then((res) =>
     {
       if (res.status === 200)

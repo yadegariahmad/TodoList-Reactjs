@@ -1,10 +1,11 @@
 import Request from '../../utils/request';
 import { SIGN_UP_SUCCESS, HIDE_LOADER } from '../actionTypes';
 import { setMessage, loader } from './settings';
+import consts from '../../utils/const';
 
 export function logIn(body, history)
 {
-  return dispatch => Request.post('http://localhost:8080/auth/login', JSON.stringify(body))
+  return dispatch => Request.post(`${consts.API_MAIN_URL}/auth/login`, JSON.stringify(body))
     .then((res) =>
     {
       const data = res.content;
@@ -33,7 +34,7 @@ export function logIn(body, history)
 
 export function signUp(body)
 {
-  return dispatch => Request.post('http://localhost:8080/auth/signup', JSON.stringify(body))
+  return dispatch => Request.post(`${consts.API_MAIN_URL}/auth/signup`, JSON.stringify(body))
     .then((res) =>
     {
       if (res.status === 201)
