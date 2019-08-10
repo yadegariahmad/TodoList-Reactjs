@@ -1,0 +1,24 @@
+{
+  "auth": {
+    "NAME": "First & Last name",
+    "NAME-ERROR": "Name is mandatory",
+    "USER-NAME": "User name",
+    "USER-NAME-ERROR": "User name is mandatory",
+    "EMAIL": "E-mail",
+    "EMAIL-ERROR": "E-mail format is incorrect",
+    "PASSWORD": "Password",
+    "PASSWORD-ERROR": "Minimum length for password is 5 characters",
+    "sign-up": {
+      "TITLE": "Sign up",
+      "WELCOME": "Enter your personal details and start journey with us"
+    },
+    "log-in": {
+      "TITLE": "Log in",
+      "WELCOME": "To keep connected with us please login with your personal info"
+    }
+  },
+  "card": {
+    "TITLE": "ToDo List",
+    "SUBMIT": "Submit"
+  }
+}
