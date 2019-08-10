@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8f59cbcb8757a6932afbef3b3c78fb40",
+    "revision": "89f8e1da7bcafec0e0ae51c7009ad73e",
     "url": "/TodoList-Reactjs/index.html"
   },
   {
-    "revision": "b22d4e46e91a731967a7",
-    "url": "/TodoList-Reactjs/static/css/3.33b6486e.chunk.css"
+    "revision": "fdcd51a911a71c0f5e9e",
+    "url": "/TodoList-Reactjs/static/css/3.3ba1f861.chunk.css"
   },
   {
-    "revision": "57043050f6f227e5ccd7",
+    "revision": "942789892cd513f12748",
     "url": "/TodoList-Reactjs/static/css/4.f317f50d.chunk.css"
   },
   {
-    "revision": "780bd71033386e40744a",
+    "revision": "95fc97a29840d084f4d7",
     "url": "/TodoList-Reactjs/static/css/5.84e27787.chunk.css"
   },
   {
@@ -20,24 +20,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TodoList-Reactjs/static/css/7.36d719d6.chunk.css"
   },
   {
-    "revision": "7289f80ff798d3402081",
+    "revision": "d9e36c9883a942d6ea97",
     "url": "/TodoList-Reactjs/static/css/main.f0bcec93.chunk.css"
   },
   {
-    "revision": "710293c508457feeeaa1",
-    "url": "/TodoList-Reactjs/static/js/0.0ef97df0.chunk.js"
+    "revision": "1f522397df34d89f8cde",
+    "url": "/TodoList-Reactjs/static/js/0.fc879808.chunk.js"
   },
   {
-    "revision": "b22d4e46e91a731967a7",
+    "revision": "fdcd51a911a71c0f5e9e",
     "url": "/TodoList-Reactjs/static/js/3.c2dd3410.chunk.js"
   },
   {
-    "revision": "57043050f6f227e5ccd7",
-    "url": "/TodoList-Reactjs/static/js/4.2e52085a.chunk.js"
+    "revision": "942789892cd513f12748",
+    "url": "/TodoList-Reactjs/static/js/4.a15b4cf1.chunk.js"
   },
   {
-    "revision": "780bd71033386e40744a",
-    "url": "/TodoList-Reactjs/static/js/5.ec26b6d3.chunk.js"
+    "revision": "95fc97a29840d084f4d7",
+    "url": "/TodoList-Reactjs/static/js/5.1fdba9cf.chunk.js"
   },
   {
     "revision": "d319d3efd685d1627ca9",
@@ -48,12 +48,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TodoList-Reactjs/static/js/7.2dc37cf3.chunk.js"
   },
   {
-    "revision": "7289f80ff798d3402081",
-    "url": "/TodoList-Reactjs/static/js/main.71049e3d.chunk.js"
+    "revision": "d9e36c9883a942d6ea97",
+    "url": "/TodoList-Reactjs/static/js/main.dd601930.chunk.js"
   },
   {
-    "revision": "8a68b79c6b3f76f84f95",
-    "url": "/TodoList-Reactjs/static/js/runtime~main.43a03278.js"
+    "revision": "59016aebad13fd57665b",
+    "url": "/TodoList-Reactjs/static/js/runtime~main.9670cce7.js"
   },
   {
     "revision": "8890f43e484ae6f9c2a40025395532aa",
